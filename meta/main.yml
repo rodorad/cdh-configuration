@@ -21,8 +21,3 @@ galaxy_info:
     - cloudera
     - cdh
     - hadoop
-dependencies: 
-  - role: franklinkim.sudo
-    sudo_defaults:
-      - defaults: env_keep += "no_proxy https_proxy http_proxy HTTP_PROXY HTTPS_PROXY NO_PROXY"
-  

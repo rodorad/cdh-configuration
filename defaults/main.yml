@@ -1,10 +1,5 @@
 ---
 # defaults file for cdh-configurations
-http_proxy: ""
-https_proxy: ""
-ftp_proxy: ""
-socks_proxy: ""
-no_proxy: ""
 hdfs_mount: "cdh"
 
 # add root_drive to skip format and mount tasks

@@ -21,9 +21,6 @@
   tags:
    - optimize
 
-- name: Include Proxy Configuration
-  include: proxy.yml
-
 - name: Include Huge Pages Configuration
   include: huge-pages.yml
 
