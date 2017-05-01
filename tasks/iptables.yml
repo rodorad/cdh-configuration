@@ -4,7 +4,7 @@
   systemd:
     name: firewalld
     state: stopped
-    enabled: yes
+    enabled: no
   when: ansible_distribution == "CentOS" and ansible_distribution_version.startswith("7.")
   
 - name: disable iptables
