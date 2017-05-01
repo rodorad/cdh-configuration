@@ -1,9 +1,19 @@
 ---
+
+- name: stop firewalld
+  systemd:
+    name: firewalld
+    state: stopped
+    enabled: yes
+  when: ansible_distribution == "CentOS" and ansible_distribution_version.startswith("7.")
+  
 - name: disable iptables
   service:
     name: iptables
     enabled: no
     state: stopped
+  when: ansible_distribution == "CentOS" and ansible_distribution_version.startswith("6.")
   tags:
     - optimize
     - iptables
+

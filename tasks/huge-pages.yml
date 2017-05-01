@@ -23,7 +23,14 @@
     - huge-pages
 
 - name: persist off huge pages
-  shell: "echo 'echo never > /sys/kernel/mm/redhat_transparent_hugepage/enabled' >> {{ rc_local }} "
+  shell: "echo 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' >> {{ rc_local }} "
+  when: "not huge_pages_persist.stdout"
+  tags:
+    - optimize
+    - huge-pages
+
+- name: persist off huge pages
+  shell: "echo 'echo never > /sys/kernel/mm/transparent_hugepage/defrag' >> {{ rc_local }} "
   when: "not huge_pages_persist.stdout"
   tags:
     - optimize

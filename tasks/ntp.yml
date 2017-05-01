@@ -1,0 +1,29 @@
+---
+- name: install ntp
+  yum:
+    name: ntp
+    state: present
+  tags:
+    - optimize
+    - ntp
+
+- name: configure ntpd
+  template:
+    src: ntp.conf.j2
+    dest: /etc/ntp.conf
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - optimize
+    - ntp
+    
+- name: turn on ntpd
+  systemd:
+    name: ntpd
+    daemon_reload: yes
+    enabled: yes
+    state: restarted
+  tags:
+    - optimize
+    - ntp
